@@ -181,6 +181,7 @@ def countMsgs(group_name, group_id, direct_msgs, csv_file=None, processTextFunc=
 				created_at = ""
 			user = msg['name']
 			text = msg['text']
+			fav_count = len(msg['favorited_by'])
 			if text is None:
 				text = ""
 			if user is None:
@@ -190,7 +191,7 @@ def countMsgs(group_name, group_id, direct_msgs, csv_file=None, processTextFunc=
 			if user not in users:
 				users[user] = []
 			if csv_file:
-				wr.writerow([group_name, created_at.encode('utf-8'), user.encode('utf-8'), text.encode('utf-8')])
+				wr.writerow([group_name, created_at.encode('utf-8'), user.encode('utf-8'), text.encode('utf-8'), fav_count])
 			if processTextFunc is not None:
 				data = processTextFunc(msg)
 				users[user].append(data)

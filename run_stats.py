@@ -41,6 +41,7 @@ match_exactly - the message must match the phrase exactly
 print_user - when print_matches is true, only print the matches by this user
 
 """
+
 def getOccurances(phrase, count_dups=False, print_matches=False, match_exactly=False, print_user=None):
 	def getNum(user, original_text):
 		count = 0
